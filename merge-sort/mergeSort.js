@@ -1,15 +1,15 @@
 function mergeSort(array) {
   function merge(left, right) {
-    let current, sorted = []
+    let smallest, sorted = []
 
     while (left.length && right.length) {
       if (left[0] < right[0]) {
-        current = left.shift()
+        smallest = left.shift()
       } else {
-        current = right.shift()
+        smallest = right.shift()
       }
 
-      sorted.push(current)
+      sorted.push(smallest)
     }
 
     return sorted.concat(left, right)
@@ -22,3 +22,8 @@ function mergeSort(array) {
 
   return merge(left, right)
 }
+
+// tests
+
+console.log(mergeSort([])) // []
+console.log(mergeSort([2, 11, 5, 9, 23])) // [2, 5, 9, 11, 23]
